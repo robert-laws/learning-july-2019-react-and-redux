@@ -5,10 +5,15 @@ class SearchBar extends React.Component {
     term: ''
   }
 
+  onFormSubmit = event => {
+    event.preventDefault();
+    this.props.onSearchBarSubmit(this.state.term)
+  }
+
   render() {
     return(
       <div className="ui blue inverted segment">
-        <form className="ui blue inverted form">
+        <form className="ui blue inverted form" onSubmit={this.onFormSubmit}>
           <div className="field">
             <label>Image Search</label>
             <input type="text" placeholder="search here..." value={this.state.term} onChange={(e) => this.setState({ term: e.target.value })} />
