@@ -1,9 +1,9 @@
 import './ImageList.css';
 import React from 'react';
-import Image from './Image';
+import ImageCard from './ImageCard';
 
 const ImageList = (props) => {
-  const images = props.images.map(({urls, id, alt_description}) => <Image imageSrc={urls.regular} key={id} altTag={alt_description} />)
+  const images = props.images.map(image => <ImageCard key={image.id} image={image} />)
 
   return (
     <div className='image-list' style={{marginTop: 10}}>
